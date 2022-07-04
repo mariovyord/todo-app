@@ -14,10 +14,11 @@ export default function Todo({ value, _id, deleteTask }) {
 	}
 
 	return (
-		<div>
-			<p onClick={handleComplete} className={completed ? 'completed' : ''}>{value}
-				<RiDeleteBin6Line onClick={handleDelete} />
-			</p>
+		<div onClick={handleComplete} className={completed ? 'completed card' : 'card'}>
+			<div className='card-values'>
+				<span>{value}</span>
+				<span><RiDeleteBin6Line onClick={handleDelete} /></span>
+			</div>
 		</div>
 	)
 }

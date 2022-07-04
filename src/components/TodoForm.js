@@ -14,9 +14,9 @@ export default function TodoForm({ addTask }) {
 	}
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form className='task-input' onSubmit={handleSubmit}>
 			<input type="text" placeholder="Add a task..." name="task" onChange={handleChange} />
-			<button>Add Task</button>
+			<button>Add</button>
 		</form>
 
 	)

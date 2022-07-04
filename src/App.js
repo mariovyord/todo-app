@@ -18,8 +18,12 @@ function App() {
 
 	return (
 		<div className="App">
-			<TodoForm addTask={addTask} />
-			{todos.map((x) => <Todo key={x._id} _id={x._id} value={x.value} deleteTask={deleteTask} />)}
+			<main>
+				<TodoForm addTask={addTask} />
+				<div className="task-list">
+					{todos.map((x) => <Todo key={x._id} _id={x._id} value={x.value} deleteTask={deleteTask} />)}
+				</div>
+			</main>
 		</div>
 	);
 }

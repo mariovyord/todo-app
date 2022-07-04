@@ -11,11 +11,12 @@ export default function TodoForm({ addTask }) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		addTask(value);
+		setValue('');
 	}
 
 	return (
 		<form className='task-input' onSubmit={handleSubmit}>
-			<input type="text" placeholder="Add a task..." name="task" onChange={handleChange} />
+			<input type="text" placeholder="Add a task..." name="task" onChange={handleChange} value={value} />
 			<button>Add</button>
 		</form>
 

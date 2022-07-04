@@ -11,10 +11,15 @@ function App() {
 		setTodos(() => [{ value: value, _id: uniqid() }, ...todos]);
 	}
 
+	const deleteTask = (_id) => {
+		const filtered = todos.filter(x => x._id !== _id);
+		setTodos(filtered);
+	}
+
 	return (
 		<div className="App">
 			<TodoForm addTask={addTask} />
-			{todos.map((x) => <Todo key={x._id} value={x.value} />)}
+			{todos.map((x) => <Todo key={x._id} _id={x._id} value={x.value} deleteTask={deleteTask} />)}
 		</div>
 	);
 }

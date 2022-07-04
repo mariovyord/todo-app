@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import TodoForm from "./components/TodoForm";
+import { useState } from 'react';
+import Todo from "./components/Todo";
+import uniqid from 'uniqid';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	const [todos, setTodos] = useState([]);
+
+	const addTask = (value) => {
+		setTodos(() => [{ value: value, _id: uniqid() }, ...todos]);
+	}
+
+	return (
+		<div className="App">
+			<TodoForm addTask={addTask} />
+			{todos.map((x) => <Todo key={x._id} value={x.value} />)}
+		</div>
+	);
 }
 
 export default App;
